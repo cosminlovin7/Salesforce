@@ -1,0 +1,72 @@
+.container{
+    width: 200px;
+    margin: auto;
+    background: rgba(255,255,255, 0.7);
+    border-radius: 3px 3px 3px 3px;
+}
+
+.icon {
+    position: absolute;
+    border-radius: 50%;
+    right: 0;
+    margin: 20px;
+    margin-right: 40px;
+}
+
+.info-section {
+    margin: 20px;
+    padding: 20px;
+    /*text-align: start;*/
+}
+
+.previous, .next{
+    position: absolute;
+    top: 40%;
+    width: auto;
+    padding: 9px;
+    color: rgba(0, 0, 0);
+    font-weight: 800;
+    cursor: pointer;
+    border-radius: 0 3px 3px 0;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.previous:hover, .next:hover{
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+}
+
+.slidesNumber{
+    font-size: 12px;
+    position: absolute;
+    padding: 10px;
+    top: 0;
+    color: rgba(0, 0, 0);
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    background: #bbb;
+    margin:0px 2px;
+    display: inline-block;
+}
+
+.active, .dot:hover{
+    background-color: #717171;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 2s;
+}
+@keyframes fade{
+    from {opacity: 0.1}
+    to {opacity: 1}
+}

@@ -1,0 +1,38 @@
+.container {
+    width: auto;
+    min-width: 430px;
+    height: 220px;
+    background-color: white;
+    border-radius: 7px 7px 7px 7px;
+}
+
+.profilePic {
+    float: left;
+    left: 0;
+    top: 0;
+    margin: 20px;
+    margin-top: 37px;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 5px;
+    border-color:burlywood;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+}
+
+.icons {
+    float: left;
+    margin-right: 10px;
+}
+
+.name, .email, .key_date, .privately_shared {
+    margin-left: 5px;
+    padding: 5px;
+}
+
+.name {
+    margin-top: 45px;
+}
