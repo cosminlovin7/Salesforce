@@ -1,0 +1,36 @@
+<template>
+    <lightning-card class="slds-is-relative container">
+        <lightning-icon class="icon" icon-name="custom:custom48" size="large"></lightning-icon>
+        <template for:each={slidesData} for:item="slide">
+            <div class={slide.cardClasses} key={slide.slideIndex}>
+                <div class="info-section">
+                    <div>
+                        <lightning-icon icon-name="utility:profile" size="x-small"></lightning-icon>
+                        {slide.object.FirstName} {slide.object.LastName}</div>
+                    <div>
+                        <lightning-icon icon-name="utility:email" size="x-small"></lightning-icon>
+                        {slide.object.Email}
+                    </div>
+                    <div>
+                        <lightning-icon icon-name="utility:key_dates" size="x-small"></lightning-icon>
+                        {slide.object.Birthdate}
+                    </div>
+
+                </div>
+            </div>
+        </template>
+        <a class="previous" onclick={previousSlide}>&#10094;</a>
+        <a class="next" onclick={nextSlide}>&#10095;</a>
+    </lightning-card>
+    <div class="slds-text-align_center slds-p-around_medium">
+        <template for:each={slidesData} for:item="slide">
+            <span class={slide.dotClasses} 
+                  data-id={slide.slideIndex}
+                  key={slide.slideIndex} 
+                  onclick={currentSlide}></span>
+
+        </template>
+
+    </div>
+
+</template>

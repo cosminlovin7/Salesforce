@@ -1,0 +1,43 @@
+<template>
+    <lightning-card title = "Contacts picklist with all contacts.">
+        <template if:true = {displayContacts}>
+            <div class = "slds-m-around_medium">
+                <lightning-combobox
+                    class = "pickField"
+                    name = "Contact"
+                    label = "Contact"
+                    value = {selectedContact}
+                    placeholder = "Select a contact"
+                    options = {contactsList}
+                    required = "true"
+                    onchange = {handleContactChange}>
+                </lightning-combobox>
+                <p>Selected contact is: <b> {selectedContact} </b></p>
+            </div>
+            <div class = "slds-m-around_medium">
+                <lightning-input 
+                    class = "inputField"
+                    type = "text" 
+                    name = "firstName" 
+                    label = "Enter a new First Name for contact" 
+                    required = "true"
+                    pattern = {alpha_validation}
+                    onchange = {handleFirstNameChange} >
+                </lightning-input>
+            </div>
+            <div class>
+                <br>
+                <lightning-button 
+                    variant = "success"
+                    label = "Change First Name"
+                    title = "Change First Name"
+                    onclick = {handleSubmitClick}
+                    disabled = {showButton}>
+                </lightning-button>
+            </div>
+        </template>
+        <template if:false = {displayContacts}>
+            <p>The number of contacts is too low to allow you to make changes.</p>
+        </template>
+    </lightning-card>
+</template>

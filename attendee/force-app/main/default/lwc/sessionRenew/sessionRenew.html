@@ -1,0 +1,58 @@
+<template>
+    <lightning-card class="slds-is-relative" title="Available sessions">
+        <template if:true={displaySessionChanger}>
+            <div>
+                <p class="message">You have successfully completed {sessionName}. You are currently attending no session. 
+                    Choose a session from the list below to get a new certification!
+                </p>
+            </div>
+        </template>
+        <template if:false={displaySessionChanger}>
+            <div>
+                <p class="message">You are currently attending {sessionName}. If you change your session before completion, 
+                    you will not be granted the certification!
+                </p>
+            </div>
+        </template>
+        
+        <div class = "slds-m-around_medium">
+            <lightning-combobox
+                class = "pickField"
+                name = "Sessions"
+                label = "Sessions"
+                value = {selectedSession}
+                placeholder = "Select a session"
+                options = {sessionsList}
+                required = "true"
+                onchange = {handleSessionChange}>
+            </lightning-combobox>
+            <p>Selected session is: <b> {selectedSession} </b></p>
+        </div>
+        <br>
+        <div>
+            <lightning-button 
+                class = "submit-button"
+                variant = "success"
+                label = "Attend Session"
+                title = "Attend Session"
+                onclick = {handleSubmitClick}
+                disabled = {showButton}>
+            </lightning-button>
+        </div>
+        <!--template if:false={displaySessionChanger}>
+            <div>
+            <p class="false-message">You are already attending a session.</p>
+            </div>
+            <br>
+            <div>
+                <lightning-button 
+                        class = "delete-button"
+                        variant = "destructive"
+                        label = "Abort Session"
+                        title = "Abort Session"
+                        onclick = {handleDeleteClick}>
+                </lightning-button>
+            </div>
+        </template-->
+    </lightning-card>
+</template>

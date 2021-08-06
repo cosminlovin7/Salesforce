@@ -1,0 +1,28 @@
+<template>
+    <div>
+        <lightning-button variant="brand" 
+                          label="New session" 
+                          title="Primary action"
+                          onclick={handleClick} 
+                          class="slds-m-left_x-small">
+        </lightning-button></div>
+    <div>
+        <div class="centered">Name: {name}</div>
+        <div class="centered">Certifications</div>
+        <template if:true={certification.data}>
+            <template for:each={certification.data} for:item="crtf">
+                <lightning-formatted-text class="centered" key={crtf.Id} value={crtf.Course__r.Name}>
+                </lightning-formatted-text>
+            </template>
+            
+            <div class="centered">Badges</div>
+            <template for:each={certification.data} for:item="crtf">
+                <lightning-formatted-rich-text key={crtf.Id} value={crtf.Course__r.Badge__c}>
+                </lightning-formatted-rich-text>
+            </template>
+        </template>
+        <!-- <div>Badge: {badge}</div> -->
+    </div>
+
+    
+</template>

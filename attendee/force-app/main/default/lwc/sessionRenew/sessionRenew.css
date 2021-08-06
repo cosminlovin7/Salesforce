@@ -1,0 +1,15 @@
+.message {
+    margin: 17px;
+}
+
+.submit-button {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}
+
+.delete-button {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}
