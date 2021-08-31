@@ -1,24 +1,26 @@
 <template>
-    <div class="container">
-        <template for:each={slidesData} for:item="slide">
-            <div class={slide.cardClasses} key={slide.slideIndex}>
-                <div class="info-section">
-                    <lightning-formatted-rich-text value={slide.object.Badge__c}>
-                    </lightning-formatted-rich-text>
-                </div>
-            </div>
-        </template>
-        <a class="previous" onclick={previousSlide}>&#10094;</a>
-        <a class="next" onclick={nextSlide}>&#10095;</a>
-        <div class="slds-text-align_center">
+    <div class="container fade">
+        <div class="carousel">
             <template for:each={slidesData} for:item="slide">
-                <span class={slide.dotClasses} 
-                    data-id={slide.slideIndex}
-                    key={slide.slideIndex} 
-                    onclick={currentSlide}></span>
-
+                <div class={slide.cardClasses} key={slide.slideIndex}>
+                    <div class="info-section">
+                        <lightning-formatted-rich-text value={slide.object.Badge__c}>
+                        </lightning-formatted-rich-text>
+                    </div>
+                </div>
             </template>
+            <a class="previous" onclick={previousSlide}>&#10094;</a>
+            <a class="next" onclick={nextSlide}>&#10095;</a>
+            <div class="slds-text-align_center">
+                <template for:each={slidesData} for:item="slide">
+                    <span class={slide.dotClasses} 
+                        data-id={slide.slideIndex}
+                        key={slide.slideIndex} 
+                        onclick={currentSlide}></span>
 
+                </template>
+
+            </div>
         </div>
     </div>
 </template>

@@ -1,0 +1,205 @@
+@font-face {
+    font-family: 'Oswald';
+    src: url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap') format('sans-serif');
+}
+
+@font-face {
+    font-family: 'Courier Prime';
+    src: url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap') format('monospace');
+}
+
+@font-face {
+    font-family: 'Padauk';
+    src: url('https://fonts.googleapis.com/css2?family=Padauk:wght@700&display=swap') format('sans-serif');
+}
+
+.container {
+    position: relative;
+    width: auto;
+    height: 750px;
+}
+
+.profile-container {
+    width: 49%;
+    height: 100%;
+    float: right;
+}
+
+.profile-main {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.profilePic {
+    height: 250px;
+    width: 100%;
+    margin-top: -12%;
+}
+
+.picture {
+    transform: translateY(0.5em);
+    transition: all 0.5s;
+}
+
+.picture:hover {
+    transform: translateY(-0.5em);
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.profilePic img{
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 5px auto auto;
+    z-index: 1;
+}
+
+.background {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 675px;
+    background-color: white;
+    border-radius: 7px 7px 7px 7px;
+}
+
+.stats-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    opacity: 0.5;
+}
+
+.numbers {
+    font-family: 'Courier Prime', monospace;
+    font-size: 22px;
+}
+
+.statistics {
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+
+.comments, .badges, .friends {
+    width: 33%;
+}
+
+.info {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.name {
+    font-family: 'Courier Prime', monospace;
+    font-size: 24px;
+}
+
+.age {
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+}
+
+.address {
+    font-size: 16px;
+}
+
+.carousel {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.my-4 {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+}
+
+.role {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+}
+
+.profile {
+    font-family: 'Courier Prime', monospace;
+    font-size: 20px;
+}
+
+.about {
+    text-align: center;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 2s;
+}
+@keyframes fade{
+    from {opacity: 0.1}
+    to {opacity: 1}
+}
+
+.edit-form-container {
+    height: 633.33px;
+    width: 49%;
+    float: left;
+    background-color: white;
+    border-radius: 7px;
+}
+
+.edit-form {
+    position: relative;
+    height: 60%;
+    width: 100%;
+    padding: 30px;
+    padding-top: 0;
+}
+
+.title {
+    font-family: 'Padauk', sans-serif;
+    font-size: 20px;
+}
+
+.buttons {
+    float: right;
+    padding-top: 20px;
+    padding-bottom: 20px
+}
+
+.savebutton {
+    padding-right: 5px;
+}
+
+.closebutton {
+    padding-left: 5px;
+}
+
+.profile-info {
+    width: 100%;
+    height: 40%;
+    padding: 30px;
+    padding-bottom: 0;
+    font-size: 16px;
+}
+
+.att_name, .att_email, .att_cnp, .att_birthdate, .att_city, .att_country {
+    height: 16.6%;
+    width: 100%;
+    display: flex;
+}
+
+.info-explainer {
+    width: 35%;
+}

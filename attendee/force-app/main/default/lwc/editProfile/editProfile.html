@@ -1,0 +1,26 @@
+<template>
+    <template if:true={displayEditProfile}>
+        <div class="container">
+            <div class="components">
+                <lightning-record-edit-form object-api-name="Attendee__c">
+                    <div class="titleDiv">
+                        <p class="title">Edit Profile</p>
+                    </div>
+                    <!--lightning-input-field field-name="Email__c"></lightning-input-field-->
+                    <lightning-input-field field-name="CNP__c" onchange={handleCNP}></lightning-input-field>
+                    <lightning-input-field field-name="City__c" onchange={handleCity}></lightning-input-field>
+                    <lightning-input-field field-name="Country__c" onchange={handleCountry}></lightning-input-field>
+                    <lightning-input-field field-name="Birthdate__c" onchange={handleBirthdate}></lightning-input-field>
+
+                    <lightning-button
+                        class="savebutton"
+                        type="brand"
+                        label="Save"
+                        onclick={overrideValue}>
+                    </lightning-button>
+                    
+                </lightning-record-edit-form>
+            </div>
+        </div>
+    </template>
+</template>

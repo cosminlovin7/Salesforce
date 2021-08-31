@@ -1,0 +1,102 @@
+<template>
+    <div class="container">
+        <div class = "profile-container">
+            <div class = "profile-main">
+                <div class="background fade">
+                    <div class="profilePic">
+                        <!--img src="https://adgenuk.com/wp-content/uploads/2020/02/Team-Member-Male-Placeholder.png" height=200; width=200-->
+                        <img class="picture" src={profilePic} height=200; width=200 onclick={handleEditProfile}>
+                    </div>
+                    <div class="statistics">
+                        <div class="friends">
+                            <p class="numbers"><b>34</b></p>
+                            <p class="stats-name">Friends</p>
+                        </div>
+                        <div class="badges">
+                            <p class="numbers"><b>{numberOfBadges}</b></p>
+                            <p class="stats-name">Badges</p>
+                        </div>
+                        <div class="comments">
+                            <p class="numbers"><b>10</b></p>
+                            <p class="stats-name">Comments</p>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <div class="data">
+                            <p class="name"><b>{name}</b>, {age}</p>
+                        </div>
+                        <div class="address">
+                            <p>{city}, {country}</p>
+                        </div>
+                        <div class="role">
+                            <p class="profile">{profileName}</p>
+                        </div>
+                    </div>
+                    <hr class="my-4">
+                    <div class="about">
+                        <p>{about}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <template if:true={displayEditProfile}>
+            <div class="edit-form-container">
+                <div class="profile-info">
+                    <div class="att_name">
+                        <p class="info-explainer"><strong>Full Name</strong></p>
+                        <p>{name}</p>
+                    </div>
+                    <div class="att_email">
+                        <p class="info-explainer"><strong>Email</strong></p>
+                        <p>{email}</p>
+                    </div>
+                    <div class="att_cnp">
+                        <p class="info-explainer"><strong>CNP</strong></p>
+                        <p>{cnp}</p>
+                    </div>
+                    <div class="att_birthdate">
+                        <p class="info-explainer"><strong>Birthdate</strong></p>
+                        <p>{birthdate}</p>
+                    </div>
+                    <div class="att_city">
+                        <p class="info-explainer"><strong>City</strong></p>
+                        <p>{city}</p>
+                    </div>
+                    <div class="att_country">
+                        <p class="info-explainer"><strong>Country</strong></p>
+                        <p>{country}</p>
+                    </div>
+                </div>
+                <div class="edit-form">
+                    <lightning-record-edit-form object-api-name="Attendee__c">
+                        <!--div class="titleDiv">
+                            <p class="title">Edit Profile</p>
+                        </div-->
+                        <hr class="my-5">
+                        <!--lightning-input-field field-name="Email__c"></lightning-input-field-->
+                        <lightning-input-field field-name="CNP__c" onchange={handleCNP}></lightning-input-field>
+                        <lightning-input-field field-name="City__c" onchange={handleCity}></lightning-input-field>
+                        <lightning-input-field field-name="Country__c" onchange={handleCountry}></lightning-input-field>
+                        <lightning-input-field field-name="Birthdate__c" onchange={handleBirthdate}></lightning-input-field>
+                        
+                        <div class="buttons">
+                            <lightning-button
+                                class="savebutton"
+                                type="brand"
+                                label="Save"
+                                onclick={handleSaveButton}>
+                            </lightning-button>
+                            <lightning-button
+                                class="closebutton"
+                                type="destructive"
+                                label="Close"
+                                onclick={handleCloseButton}>
+                            </lightning-button>
+                        </div>
+                        
+                    </lightning-record-edit-form>
+                </div>
+            </div>
+        </template>
+    </div>
+</template>

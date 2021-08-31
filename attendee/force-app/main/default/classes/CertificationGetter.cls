@@ -9,7 +9,7 @@ public with sharing class CertificationGetter {
             Attendee__c currentAttendee = [SELECT Name FROM Attendee__c WHERE Id = :attendeeId].get(0);
             List<Certification__c> certifications = new List<Certification__c>();
 
-            certifications = [SELECT Badge__c FROM Certification__c WHERE Granted_to__c = :currentAttendee.Name];
+            certifications = [SELECT Id, Name, Session__c, Session__r.Name, Course__c, Course__r.Name FROM Certification__c WHERE Granted_to__c = :currentAttendee.Name];
 
             return certifications;
         } catch (Exception e) {
@@ -27,5 +27,37 @@ public with sharing class CertificationGetter {
         }
 
         return false;
+    }
+
+    @AuraEnabled(cacheable=true)
+    public static List<Certification__c> getUserCertifications(Id user){
+        try {
+            Attendee__c currentAttendee = [SELECT Name FROM Attendee__c WHERE UserId__c = :user].get(0);
+            List<Certification__c> certifications = new List<Certification__c>();
+
+            certifications = [SELECT Badge__c FROM Certification__c WHERE Granted_to__c = :currentAttendee.Name];
+
+            return certifications;
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
+        }
+    }
+
+    @AuraEnabled(cacheable = true)
+    public static Boolean dispUserCertif(Id user) {
+        Attendee__c currentAttendee = [SELECT Name FROM Attendee__c WHERE UserId__c = :user].get(0);
+        Integer numberOfCertifications = [SELECT count() FROM Certification__c WHERE Granted_to__c = :currentAttendee.Name];
+
+        if (numberOfCertifications > 0) {
+            return true;
+        }
+
+        return false;
+    }
+
+    @AuraEnabled(cacheable = true)
+    public static Integer getUserBadgesNr(Id user) {
+        Attendee__c currentAttendee = [SELECT Name FROM Attendee__c WHERE UserId__c = :user].get(0);
+        return [SELECT count() FROM Certification__c WHERE Granted_to__c = :currentAttendee.Name];
     }
 }

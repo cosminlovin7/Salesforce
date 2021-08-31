@@ -12,10 +12,12 @@
     top: 0;
     margin: 20px;
     margin-top: 37px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     border-style: solid;
+    border-color: 🇧🇪;
     border-width: 5px;
-    border-color:burlywood;
 }
 
 .info {
